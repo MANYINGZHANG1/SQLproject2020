@@ -1,0 +1,44 @@
+1.	How many different products are in each order? Which order has the most number of unique products?
+
+
+2.	Which products are sold in jars? What is the most expensive product that's sold in jars?
+SELECT * FROM [Products]
+WHERE Unit like '%jars%'
+ORDER BY 6 desc;
+
+3.	What are the product names are included in order ID 10250?
+SELECT * FROM OrderDetails
+Where OrderID = '10250'
+
+SELECT * FROM Products
+WHERE ProductID = '41' or ProductID = '51' or ProductID = '61'
+
+4.	What products are contained in category 'Dairy Products'?
+SELECT * FROM [Products]
+WHERE CategoryID like '%4%';
+
+5.	Return the top 5 countries which have the most customers? (hint: use distinct to get unique customers)
+SELECT Country, count (*)
+FROM [Customers]
+GROUP BY Country
+ORDER BY 2 desc;
+
+6.	Which products are sold in ‘jars’?
+SELECT * FROM [Products]
+WHERE Unit like '%jars%';
+
+7.	Which employees studied English in their education background? 
+SELECT * FROM [Employees]
+WHERE Notes like '%English%';
+
+8.	Which employees are born after 1960? (hint: use ‘1960-01-01’ to compare with brith date)
+
+
+9.	Return the top 10 products have been sold the most
+SELECT Quantity, count (*) FROM [OrderDetails]
+GROUP BY ProductID
+ORDER BY 2 desc;
+
+10.	What are the average prices for ‘bottles’ and ‘jars’ products? (hard)
+SELECT Unit, Price, AVG(Price) FROM [Products]
+WHERE Unit like '%bottles%' or Unit like '%jars%';
